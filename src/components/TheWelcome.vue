@@ -40,6 +40,7 @@ import SupportIcon from './icons/IconSupport.vue'
     <a href="https://on.cypress.io/component" target="_blank" rel="noopener"
       >Cypress Component Testing</a
     >.
+    <a href="/Authentification">administrateur</a>
 
     <br />
 
