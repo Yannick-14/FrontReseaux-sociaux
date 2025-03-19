@@ -11,7 +11,11 @@
     "lint": "eslint . --fix"
   },
   "dependencies": {
-    "vue": "^3.5.12"
+    "@vueuse/head": "^2.0.0",
+    "axios": "^1.8.3",
+    "vue": "^3.5.12",
+    "vue-meta": "^2.4.0",
+    "vue-router": "^4.5.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.14.0",
