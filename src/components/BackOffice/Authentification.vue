@@ -5,30 +5,30 @@
     import { ref } from "vue";
     import axios from "axios";
     const router = useRouter();
-    const GA_ID = 'G-Y9N113PDNK';
+    // const GA_ID = 'G-Y9N113PDNK';
 
     useHead(
     {
         title:'Authentification',
-        script: [
-            {
-            async: true,
-            src: `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`
-            }
-        ]
+        // script: [
+        //     {
+        //     async: true,
+        //     src: `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`
+        //     }
+        // ]
         // meta:[
         //     { name: 'description', content: 'Page authentification pour administrateur.'},
         // ]
     }
     );
-    onMounted(() => {
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-            window.dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', GA_ID);
-    });
+    // onMounted(() => {
+    //     window.dataLayer = window.dataLayer || [];
+    //     function gtag() {
+    //         window.dataLayer.push(arguments);
+    //     }
+    //     gtag('js', new Date());
+    //     gtag('config', GA_ID);
+    // });
 
     const email=ref("");
     const mdp=ref("");
