@@ -3,11 +3,11 @@ import TheWelcome from '@/components/TheWelcome.vue';
 import Authentification from '@/components/BackOffice/Authentification.vue';
 
 const routes = [
-  {
-    path: '/',
-    name: 'Accueil',
-    component: TheWelcome
-  },
+  // {
+  //   path: '/',
+  //   name: 'Accueil',
+  //   component: TheWelcome
+  // },
   {
     path: '/Authentification',
     name: 'Authentification',
@@ -16,7 +16,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory('/front-reseaux-sociaux/'), // Ajoute cette ligne avec la base URL du projet
+  history: createWebHistory(), // Ajoute cette ligne avec la base URL du projet
   routes
 });
 
