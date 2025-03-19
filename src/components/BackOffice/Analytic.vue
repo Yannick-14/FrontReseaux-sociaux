@@ -1,6 +1,6 @@
 <script setup>
 import { useHead } from '@vueuse/head';
-import { onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 
 useHead({
   title: 'Analytic',
@@ -16,19 +16,78 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   ]
 });
 
-// Lors du montage, attendre quelques secondes puis afficher le contenu de dataLayer dans la console
+// Variable réactive pour stocker les données de dataLayer
+const dataLayerItems = ref([]);
+
+// Au montage, attendre quelques secondes pour récupérer dataLayer, puis le stocker dans dataLayerItems
 onMounted(() => {
   setTimeout(() => {
+    // Affiche dans la console pour vérification
     console.log('dataLayer:', window.dataLayer);
+    dataLayerItems.value = window.dataLayer || [];
   }, 3000);
 });
 </script>
 
 <template>
-  <h1>Analytic</h1>
-  <!-- Ce bloc noscript est affiché pour les navigateurs avec JavaScript désactivé -->
+  <h1>Analytic DataLayer</h1>
+  <div v-if="dataLayerItems.length === 0">
+    <p>Chargement des données...</p>
+  </div>
+  <div v-else>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Item (JSON)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(item, index) in dataLayerItems" :key="index">
+          <td>{{ index + 1 }}</td>
+          <td>{{ JSON.stringify(item) }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Bloc noscript pour les navigateurs sans JS -->
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTTJ3VZ6"
             height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
 </template>
+
+<style scoped>
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.data-table th,
+.data-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.data-table th {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.data-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.data-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+</style>
