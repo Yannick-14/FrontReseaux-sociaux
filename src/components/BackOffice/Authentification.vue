@@ -2,7 +2,7 @@
     
     import { useHead } from '@vueuse/head';
     import { useRouter } from "vue-router";
-    import { ref } from "vue";
+    import { ref,onMounted  } from "vue";
     import axios from "axios";
     const router = useRouter();
     const GA_ID = 'G-Y9N113PDNK';
