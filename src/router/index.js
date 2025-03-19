@@ -16,8 +16,9 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(), // Ajoute cette ligne
+  history: createWebHistory('/front-reseaux-sociaux/'), // Ajoute cette ligne avec la base URL du projet
   routes
 });
+
 
 export default router;
