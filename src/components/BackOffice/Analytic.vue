@@ -1,30 +1,26 @@
 <script setup>
 import { useHead } from '@vueuse/head';
-import { onMounted } from 'vue';
-
-const GA_ID = 'G-Y9N113PDNK'; // Remplace par ton ID de suivi
 
 useHead({
-  title: 'Analytic',
-  script: [
-    {
-      async: true,
-      src: `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`
-    }
-  ]
-});
-
-// Initialiser Google Analytics après le chargement du script
-onMounted(() => {
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    window.dataLayer.push(arguments);
-  }
-  gtag('js', new Date());
-  gtag('config', GA_ID);
+    title: 'Analytic',
+    script: [
+        {
+            // Ce script est injecté dans le head pour charger GTM
+            children: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NTTJ3VZ6');`
+        }
+    ]
 });
 </script>
 
 <template>
-  <h1>Analytic</h1>
+    <h1>Analytic</h1>
+    <!-- Ce bloc noscript est affiché dans le body pour les navigateurs désactivant JavaScript -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTTJ3VZ6" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
+    </noscript>
 </template>
