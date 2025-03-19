@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory  } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import TheWelcome from '@/components/TheWelcome.vue';
 import Authentification from '@/components/BackOffice/Authentification.vue';
 
@@ -16,7 +16,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHashHistory (), // Ajoute cette ligne avec la base URL du projet
+  history: createWebHistory(), // Ajoute cette ligne avec la base URL du projet
   routes
 });
 
