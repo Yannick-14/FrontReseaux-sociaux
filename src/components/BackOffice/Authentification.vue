@@ -1,8 +1,10 @@
 <script setup>
     
     import { useHead } from '@vueuse/head';
+    import { useRouter } from "vue-router";
     import { ref } from "vue";
     import axios from "axios";
+    const router = useRouter();
 
     useHead(
     {
@@ -22,6 +24,7 @@
     formData.append("email", email.value);
     formData.append("mdp", mdp.value);
     console.log("Data: "+formData);
+    router.push("/");
     
 
     // try {
@@ -32,12 +35,7 @@
     //     });
     //     console.log("reponse "+response.data);
     //     if (response.status === 200) {
-    //         alert("Design ajouté avec succès !");
-    //         // Réinitialisation des champs après l'insertion réussie
-    //         titre.value = "";
-    //         lien.value = "";
-    //         description.value = "";
-    //         images.value = null;
+    //         redirection vers analytics
     //     } else {
     //         alert("Erreur lors de l'insertion : "+response.status+" "+ response.data.message);
     //     }
@@ -48,27 +46,38 @@
 };
 </script>
 <template>
-    <h1>Authentification</h1>
-    <form @submit.prevent="submitForm">
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="text" id="email" v-model="email" name="email" placeholder="Entrez votre email" />
-        </div>
+    <main>
+        <h1>Authentification</h1>
+        <form @submit.prevent="submitForm">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" id="email" v-model="email" name="email" placeholder="Entrez votre email" />
+            </div>
 
-        <div class="form-group">
-            <label for="mdp">Mot de passe:</label>
-            <input type="text" id="mdp" v-model="mdp" name="mdp" placeholder="Entrez le mot de passe de securite" />
-        </div>
+            <div class="form-group">
+                <label for="mdp">Mot de passe:</label>
+                <input type="text" id="mdp" v-model="mdp" name="mdp" placeholder="Entrez le mot de passe de securite" />
+            </div>
 
 
-        <button type="submit" class="btn-ajouter">S'authentifier</button>
-    </form>
+            <button type="submit" class="btn-ajouter">S'authentifier</button>
+        </form>
+    </main>
 </template>
 
-<style>
+<style scoped>
+    main {
+        background: linear-gradient(#037dcf, #4C1D95);
+        width: 100vw;
+        height: 100vh;
+        padding: 2%;
+        box-sizing: border-box;
+        margin-top: -1%;
+        margin-left: -1%;
+    }
     h1
     {
-        color: #E8E8E4;
+        color: #fff3d6;
         text-decoration: none;
         margin-left: 40%;
         margin-top: 2%;
@@ -76,19 +85,30 @@
     }
     form
     {
-        display: grid;
+        
+        /* display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 50px;
         width: 70%;
         max-width: 900px;
         margin: 0 auto;
-        margin-top: 2%;
+        margin-top: 2%; */
+        display: flex;
+        flex-direction: column;
+        margin-left: 30%;
+        margin-right: 30%;
     }
+    .form-group input::placeholder {
+        color: #d1d1d1; /* Change la couleur du texte */
+        opacity: 1; /* Ajuste l'opacité (1 = 100%) */
+        font-style: italic; /* Optionnel : rend le texte en italique */
+    }
+
 
     /* Chaque groupe label+input */
     .form-group {
         position: relative;   /* Permet de positionner le label en "absolu" */
-        margin-bottom: 40px;
+        margin-bottom: 10%;
     }
 
     .form-group label {
@@ -97,9 +117,9 @@
         margin-bottom: 8px;
         margin-left: 10px;
         position: absolute;
-        top: -26px;
-        left: 20px;
-        color: #922525;
+        top: -35px;
+        left: 0;
+        color: #ebebeb;
         padding: 4px 8px;
     }
 
@@ -109,7 +129,7 @@
         border-radius: 40px;
         padding: 12px 20px;
         background: transparent;
-        color: #c74040;
+        color: #eeecec;
         outline: none;
         font-size: 1rem;
         -webkit-transition: width 0.4s ease-in-out;
@@ -127,7 +147,7 @@
         padding: 14px 40px;
         border: none;
         border-radius: 40px;
-        background: #8b8989;
+        background: d1d1d1;
         color: #d50000;
         font-size: 1.5rem;
         font-family: "Brush Script MT", cursive;
