@@ -16,9 +16,8 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(), // Ajoute cette ligne avec la base URL du projet
+  history: createWebHistory(), // Ajoute cette ligne
   routes
 });
-
 
 export default router;
