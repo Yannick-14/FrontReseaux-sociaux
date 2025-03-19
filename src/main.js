@@ -11,8 +11,8 @@ const head = createHead();
 
 app.use(router);
 app.use(head);
-app.use(VueGtm, {
-    id: 'GT-MQRD39VH', // Ton conteneur GTM
-    vueRouter: router
-});
+// app.use(VueGtm, {
+//     id: 'GT-MQRD39VH', // Ton conteneur GTM
+//     vueRouter: router
+// });
 app.mount('#app');
