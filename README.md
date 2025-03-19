@@ -1,4 +1,5 @@
-# FrontReseaux-sociaux
+<!-- <<<<<<< HEAD -->
+# reseaux-sociaux
 
 This template should help get you started developing with Vue 3 in Vite.
 
@@ -14,3 +15,31 @@ See [Vite Configuration Reference](https://vite.dev/config/).
 
 ```sh
 npm install
+```
+
+### Compile and Hot-Reload for Development
+
+```sh
+npm run dev
+```
+
+### Compile and Minify for Production
+
+```sh
+npm run build
+```
+
+<!-- ### Run Unit Tests with [Vitest](https://vitest.dev/)
+
+```sh
+npm run test:unit
+```
+
+### Lint with [ESLint](https://eslint.org/)
+
+```sh
+npm run lint -->
+<!-- ``` -->
+<!-- ======= -->
+# FrontReseaux-sociaux
+<!-- >>>>>>> 85a0be0f299949c572254b08f766473a87395712 -->
